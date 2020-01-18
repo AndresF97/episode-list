@@ -9,7 +9,7 @@ CREATE TABLE episode(
     id INTEGER NOT NULL AUTO_INCREMENT,
     show_name VARCHAR(100),
     episode_name VARCHAR(100),
-    watched BIT(1),
+    watched TINYINT(1) NOT NULL Default"1",
     PRIMARY KEY(id)
 );
 INSERT INTO episode (show_name,episode_name) VALUES ("HOUSE MD","WILSON HEART HOUSES MIND");
