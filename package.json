@@ -1,0 +1,26 @@
+{
+  "name": "episode-list",
+  "version": "1.0.0",
+  "description": "A list that you can keep track of your episode and reviews",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndresF97/episode-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndresF97/episode-list/issues"
+  },
+  "homepage": "https://github.com/AndresF97/episode-list#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1"
+  }
+}
