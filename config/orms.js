@@ -1,11 +1,15 @@
 var connection = require("./connection.js");
 
 var orm = {
-    selectAll : function(whatTable){
-        var queryS = "SELECT * FROM ??";
-        connection.query(queryS,[whatTable],function(err,results){
-            if(err) throw err
-            return(results)
+    selectAll : function(whatTable,cb){
+       
+        var queryStr = "SELECT * FROM ??";
+        connection.query(queryStr,[whatTable],function(err,results){
+            if(err){
+                throw err
+            }
+           cb(results);
+       
         })
     },
     insertOne:function(whatTable,whatInfo,cb){
@@ -31,5 +35,6 @@ var orm = {
     }
 
 };
-console.log(orm.selectAll("episode"))
+
+
 module.exports = orm;

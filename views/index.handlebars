@@ -1,14 +1,14 @@
 <h1 class="text-center font-weight-bolder m-4" id="main">Your shows and notes</h1>
-    <!--<ul>
-        {{#each obj}}
+    <ul>
+        {{#each wObject.episode}}
         <li> 
-            <p>ID : {{episode.id}}</p>
-            <p> show name: {{episode.show_name}}</p>
-            <p> episode name : {{episode.episode_name}}</p>
-            <p>  watched  : {{episode.watched}}</p>
-
+            <p>ID : {{this.id}}</p>
+            <p> show name: {{this.show_name}}</p>
+            <p> episode name : {{this.episode_name}}</p>
+            <p>  watched  : {{this.watched}}</p>
+        </li>
         {{/each}}
-        </ul>-->
+        </ul>
 <div class="container row ml-4">
     <div class="container col-4 border border-dark">
 <div class="card">
