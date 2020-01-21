@@ -3,7 +3,7 @@ var orm = require("../config/orms.js");
 var show  ={
     selectAll : function(cb){
         orm.selectAll("episode",function(res){
-            cb(res);
+            return(res);
         });
     },
     insertOne : function(info,cb){
@@ -17,6 +17,6 @@ var show  ={
         })
     }
 };
-
+console.log(show.selectAll())
 module.exports = show;
 

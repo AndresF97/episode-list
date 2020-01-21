@@ -3,12 +3,13 @@ var router  = express.Router();
 var shows = require("../model/episode.js")
 
 router.get("/",function(req,res){
-    shows.selectAll(function(data){
-        var obj = {
-            shows: data
-        };
-        res.render("index",obj)
-    });
+    // shows.selectAll(function(data){
+    //     var obj = {
+    //         shows: data
+    //     };
+    // console.log(obj+"this is the obj")
+    res.render("index")
+   // });
 });
 
 router.post("/api/shows",function(req,res){
@@ -18,6 +19,7 @@ router.post("/api/shows",function(req,res){
 });
 
 router.put("/api/shows/:id",function(req,res){
+    console.log(req.params.id)
     var con  = "id = " +  req.params.id;
     console.log("condition",con)
     shows.upDateOne(
@@ -33,5 +35,4 @@ router.put("/api/shows/:id",function(req,res){
         }
     );
 })
-
-module.exports = router;
+module.exports = router ;
