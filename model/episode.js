@@ -6,9 +6,10 @@ var show  ={
             placeHolder(res)
         });
     },
-    insertOne : function(info,cb){
-        orm.insertOne("episode",info,function(res){
-            cb(res)
+    insertOne : function(info,placeHolder){
+        orm.insertOne(info.show_name,info.episode_name,function(res){
+            
+            placeHolder(res)
         });
     },
     upDateOne: function(col,val,cb){

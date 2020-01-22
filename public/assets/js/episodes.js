@@ -6,13 +6,15 @@
             });
 
 
-        $("add-form").on("submit",function(event){
+        $(".add-form").on("submit",function(event){
+            console.log("helo")
+        event.preventDefault()
         var newShow = {
             show_name:  $("#showName").val().trim(),
             episode_name: $("#episodeName").val().trim()
         } 
         console.log(newShow)
-        $.ajax("api/shows",{
+        $.ajax("/api/shows",{
             type:"POST",
             data:newShow
         }).then(

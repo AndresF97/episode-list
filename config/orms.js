@@ -12,11 +12,13 @@ var orm = {
        
         })
     },
-    insertOne:function(whatTable,whatInfo,cb){
-        var queryS = "INSERT INTO ?? SET ?"
-        connection.query(queryS,[whatTable,whatInfo],(err,results)=>{
+    insertOne:function(whatShow,whatEpisode,cb){
+        var queryS = "INSERT INTO episode (show_name,episode_name) VAlUES ??"
+        console.log(whatShow)
+        console.log(whatEpisode)
+        connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode},(err,results)=>{
         if(err){
-            console.error("There's an error in the slectWhere function")
+            console.error("There's an error in the insertFunction function")
             }
             cb(results)
         });  

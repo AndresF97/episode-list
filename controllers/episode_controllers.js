@@ -8,10 +8,11 @@ router.get("/",function(req,res){
     });
 
 });
-
+//check the orm file to see how the data is being stored
 router.post("/api/shows",function(req,res){
-    shows.insertOne(["",""],[req.body.name, req.body.comedy],function(result){
-        res.json({id: result.inserId})
+    shows.insertOne(req.body,function(result){
+        console.log(result)
+        res.json({id: result.insertId})
     });
 });
 
