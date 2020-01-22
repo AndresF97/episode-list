@@ -1,35 +1,53 @@
 <h1 class="text-center font-weight-bolder m-4" id="main">Your shows and notes</h1>
-    <ul>
-        {{#each wObject}}
-        <li> 
-            <p>ID : {{this.id}}</p>
-            <p> show name: {{this.show_name}}</p>
-            <p> episode name : {{this.episode_name}}</p>
-            <p>  watched  : {{this.watched}}</p>
-        </li>
-        {{/each}}
-        </ul>
 <div class="container row ml-4">
     <div class="container col-4 border border-dark">
 <div class="card">
   <h5 class="card-header text-center">Waiting to Watch</h5>
   <div class="card-body">
+     {{#each wObject}}
     <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title "> Show Name: {{this.show_name}}</h5>
+    <p class="card-text p-3 mb-2 bg-success text-white rounded-lg">Episode name: {{this.episode_name}}</p>
+    <div class="text-center">
+    <a href="#" class="btn btn-primary">Watched</a>
+    <a href="#" class="btn btn-warning text-white">Edit</a>
+    </div>
   </div>
 </div>
+<div class="m-4"></div>
+{{/each}}
   </div>
 </div>
 
 </div>
 <div class="container col-4 border border-dark">
-    <h1 class="text-center ml-5 mr-5">Edit your text</h1>
+    <h1 class="text-center ml-5 mr-5">Add your TV show</h1>
     <div class="container border border-dark rounded-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quo corporis doloremque dolorem ea aperiam. Nesciunt aperiam animi quidem explicabo, odio natus ipsa distinctio numquam, fugit ducimus eaque et necessitatibus.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores nesciunt fugiat at fugit consequatur dicta facere soluta et est tenetur, saepe atque id odit minima sequi ipsam totam voluptas illo?
+        <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Show Name</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="TV show">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Episode Name</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Episode name">
+  </div>
+        </form>
+        </div>
+        <div class="m-4"></div>
+        <h1 class="text-center ml-5 mr-5">Edit your text</h1>
+    <div class="container border border-dark rounded-lg">
+        <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Show Name</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="TV show">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Episode Name</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Episode name">
+  </div>
+        </form>
         </div>
     </div>
     <div class="container col-4 border border-dark">
