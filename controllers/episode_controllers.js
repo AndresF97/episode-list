@@ -4,19 +4,13 @@ var shows = require("../model/episode.js")
 
 router.get("/",function(req,res){
     shows.selectAll(function(data){
-        var wObject ={
-            episode: data
-        };
-        console.log(wObject);
-        res.render("index",wObject);
+        // var wObject ={
+        //     episode: data
+        // };
+        console.log(data);
+        res.render("index",{wObject:data});
     });
 
-});
-shows.selectAll(function(data){
-    var wObject ={
-        episode: data
-    };
-    console.log(wObject)
 });
 
 // router.post("/api/shows",function(req,res){

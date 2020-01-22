@@ -11,8 +11,8 @@ var routes = require("./controllers/episode_controllers.js")
 
 
 
-app.use(express.static("public"));
 
+app.use("/public", express.static('./public/'));
 app.use(express.urlencoded({extended : true}));
 
 app.use(express.json());
