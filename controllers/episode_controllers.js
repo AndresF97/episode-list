@@ -10,7 +10,7 @@ router.get("/",function(req,res){
 });
 
 router.post("/api/shows",function(req,res){
-    shows.insertOne(["name","comedy"],[req.body.name, req.body.comedy],function(result){
+    shows.insertOne(["",""],[req.body.name, req.body.comedy],function(result){
         res.json({id: result.inserId})
     });
 });
