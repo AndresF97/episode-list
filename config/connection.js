@@ -8,7 +8,7 @@ if(process.env.JAWSDB_URL){
     port: 3306,
     user:"root",
     password:"password",
-    database:"fv2m5mixpq1o7ldf"
+    database:"episode_db"
    });
 };
 
