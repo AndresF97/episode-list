@@ -25,7 +25,7 @@
     $(".watched").on("click",function(event){
         console.log(this)
         var id = $(this).data("id")
-        $.ajax("/api/shows" + id,{
+        $.ajax("/api/shows:" + id,{
             type:"PUT"
         }).then(function(){
             console.log("It worked")

@@ -16,11 +16,12 @@ router.post("/api/shows",function(req,res){
     });
 });
 
-// router.put("/api/shows/:id",function(req,res){
-//     console.log(req.params.id)
-//     show.upDateOne(req.body,function(res){
-//         console.log(res)
-//     })
+router.put("/api/shows/:id",function(req,res){
+    console.log(req.params.id)
+    var condition = "id = " + req.params.id;
+    show.upDateOne(req.body,function(res){
+        console.log(res)
+    })
 
         // function(results){
         //     if(results.changedRows === 0){
@@ -28,5 +29,5 @@ router.post("/api/shows",function(req,res){
         //     }
         //     res.status(200).end();
         // }
-//})
+})
 module.exports = router ;
