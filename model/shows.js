@@ -12,8 +12,8 @@ var show  ={
             placeHolder(res)
         });
     },
-    upDateOne: function(col,val,cb){
-        orm.updateOne("episode",col,val, function(res){
+    upDateOne: function(info,id,cb){
+        orm.updateOne("episode",info,id, function(res){
             cb(res)
         })
     }

@@ -7,13 +7,11 @@
 
 
         $(".add-form").on("submit",function(event){
-            console.log("helo")
         event.preventDefault()
         var newShow = {
             show_name:  $("#showName").val().trim(),
             episode_name: $("#episodeName").val().trim()
         } 
-        console.log(newShow)
         $.ajax("/api/shows",{
             type:"POST",
             data:newShow
@@ -23,5 +21,15 @@
                 location.reload()
             }
         )
+    })
+    $(".watched").on("click",function(event){
+        console.log(this)
+        var id = $(this).data("id")
+        $.ajax("/api/shows" + id,{
+            type:"PUT"
+        }).then(function(){
+            console.log("It worked")
+            location.reload()
+        })
     })
 });

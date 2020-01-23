@@ -13,7 +13,6 @@ var orm = {
         })
     },
     insertOne:function(whatShow,whatEpisode,cb){
-        var queryS = "INSERT INTO episode (show_name,episode_name) VAlUES ??"
         console.log(whatShow)
         console.log(whatEpisode)
         connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode},(err,results)=>{
@@ -23,9 +22,8 @@ var orm = {
             cb(results)
         });  
     },
-    updateOne:function(whatTable,whatCol,valOf,cb){
-        var queryS ="UPDATE ?? SET ?? WHERE ?? =?"
-        connection.query(queryS,[whatTable,whatCol,valOf],(err,results)=>{
+    updateOne:function(valOfShow,valOfEpisode,valOfId,cb){
+        connection.query(`UPDATE episode SET show_name = ${valOfShow}, epsido_name = ${valOfEpisode} WHERE id =${valOfId}`,(err,results)=>{
             if(err){
                 console.error("there's an error in upDate function")
             }
