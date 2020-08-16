@@ -19,6 +19,7 @@ var orm = {
         if(err){
             console.error("There's an error in the insertFunction function")
             }
+            //cb renders the resul
             cb(results)
         });  
     },

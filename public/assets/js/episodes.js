@@ -18,7 +18,7 @@
         }).then(
             function(){
                 console.log("added new show");
-                location.reload()
+                //location.reload()
             }
         )
     })
@@ -29,7 +29,21 @@
             type:"PUT"
         }).then(function(){
             console.log("It worked")
-            location.reload()
+            //location.reload()
         })
     })
 });
+$("#addShows").on("click",function(event){
+    event.preventDefault()
+    console.log($("#episodeName").val())
+    var show = $("#episodeName").val()
+    console.log(show)
+     var queryUrl = "https://www.omdbapi.com/?t=" + show + "&plot=short&apikey=trilogy"
+        console.log(show)
+        $.ajax({
+            url: queryUrl,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response);
+    });
+})

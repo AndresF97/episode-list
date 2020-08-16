@@ -12,6 +12,7 @@
     <div class="text-center">
     <a href="#" class="watched btn btn-primary" data-id="{{this.id}}">Watched</a>
     <a href="#" class="btn btn-warning text-white">Edit</a>
+    <a href="#" id="delete" data-delete="{{this.id}}"class="btn btn-danger text-white">Delete</a>
     </div>
   </div>
 </div>
@@ -33,7 +34,7 @@
             <label for="exampleFormControlInput1">Episode Name</label>
             <input type="episodeName" id="episodeName" class="form-control" id="episodeN" placeholder="Episode name">
             <div class="m-2"></div>
-            <button type="submit" class="btn btn-outline-secondary">Add!</button>
+            <button type="submit" id="addShows" class="btn btn-outline-secondary">Add!</button>
           </div>
     </form>
     </div>
