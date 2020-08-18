@@ -33,10 +33,11 @@
         })
     })
 });
-$("#addShows").on("click",function(event){
+$("#searchShows").on("click",function(event){
     event.preventDefault()
-    console.log($("#episodeName").val())
-    var show = $("#episodeName").val()
+    console.log($("#showName").val())
+    var show = $("#showName").val()
+    var episodde = $("#episodeName").val()
     console.log(show)
      var queryUrl = "https://www.omdbapi.com/?t=" + show + "&plot=short&apikey=trilogy"
         console.log(show)
@@ -45,5 +46,17 @@ $("#addShows").on("click",function(event){
             method: "GET"
         }).then(function(response) {
             console.log(response);
+            var image = $(`<img src=${response.Poster}>`);
+            var imgHolder = $("#imgSearch");
+            imgHolder.empty();
+            console.log(response.Poster)
+            imgHolder.append(image)
+            if(response.Poster !== undefined){
+                var form = $(".add-form")
+                var textarea = $(`<textarea class="m-4"></textarea>`)
+                var addBtn = $(`<button class="btn btn-success">Add!</button>`)
+                form.append(textarea)
+                form.append(addBtn)
+            }
     });
 })
