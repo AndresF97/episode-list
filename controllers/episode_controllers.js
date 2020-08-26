@@ -1,7 +1,7 @@
 var express = require("express")
 var router  = express.Router();
 var shows = require("../model/shows.js")
-
+//gets all data saved from the database
 router.get("/",function(req,res){
     shows.selectAll(function(data){
         res.render("index",{wObject:data});
@@ -15,7 +15,13 @@ router.post("/api/shows",function(req,res){
         res.json({id: result.insertId})
     });
 });
+//deletes from the db
+router.delete("/api/deleteShow/:id",function(req,res){
+    var id = req.params.id
 
+})
+
+//updates info from to the database
 router.put("/api/shows/:id",function(req,res){
     console.log(req.params.id)
     var condition = "id = " + req.params.id;

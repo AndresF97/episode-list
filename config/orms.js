@@ -12,14 +12,15 @@ var orm = {
        
         })
     },
-    insertOne:function(whatShow,whatEpisode,cb){
+    insertOne:function(whatShow,whatEpisode,note,cb){
         console.log(whatShow)
         console.log(whatEpisode)
-        connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode},(err,results)=>{
+        console.log(note)
+        connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode,memo:note},function(err,results){
         if(err){
             console.error("There's an error in the insertFunction function")
             }
-            //cb renders the resul
+            //cb renders the results
             cb(results)
         });  
     },
