@@ -1,0 +1,12 @@
+h1{
+    color: red;
+};
+h5{
+    color: red
+    !important;
+}
+.poster{
+    width: 250px;
+    height: 400px;
+    background-color: red;
+};

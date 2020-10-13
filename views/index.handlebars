@@ -1,6 +1,6 @@
 <h1 class="text-center font-weight-bolder m-4" id="main">Your shows and notes</h1>
 <div class="container row ml-4">
-    <div class="container col-4 border border-dark">
+    <div class="container col-4">
 <div class="card">
   <h5 class="card-header text-center">Waiting to Watch</h5>
   <div class="card-body">
@@ -8,7 +8,7 @@
     <div class="card">
   <div class="card-body">
     <h5 class="card-title "> Show Name: {{this.show_name}}</h5>
-    <img src="{{this.show_logo}}">
+    <img class="poster" src="{{this.show_logo}}">
     <p class="card-text p-3 mb-2 bg-success text-white rounded-lg">Episode name: {{this.episode_name}}</p>
     <p class="card-text p-3 mb-2 rounded-lg">My Notes: {{this.memo}}</p>
     <div class="text-center">
@@ -24,7 +24,7 @@
 </div>
 
 </div>
-<div class="container col-4 border border-dark">
+<div class="container col-4">
     <h1 class="text-center ml-5 mr-5">Add your TV show</h1>
     <div class="container border border-dark rounded-lg">
   <form class="add-form">
@@ -46,7 +46,7 @@
 
       </div>
     </div>
-    <div class="container col-4 border border-dark">
+    <div class="container col-4">
         <div class="card">
   <h5 class="card-header text-center">Watched Shows</h5>
 
