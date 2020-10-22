@@ -8,11 +8,13 @@
 
         $(".add-form").on("submit",function(event){
         event.preventDefault()
+        console.log($("#mainPost").attr("data-post"))
         console.log($("#memo").val())
         var newShow = {
             show_name:  $("#showName").val().trim(),
             episode_name: $("#episodeName").val().trim(),
-            memo:$("#memo").val().trim()
+            memo:$("#memo").val().trim(),
+            show_poster:$("img").data("data-post")
         } 
         $.ajax("/api/shows",{
             type:"POST",
@@ -46,11 +48,11 @@ $("#searchShows").on("click",function(event){
             url: queryUrl,
             method: "GET"
         }).then(function(response) {
-            console.log(response);
             var image = $(`<img src=${response.Poster}>`);
+            image.attr("data-post",`${response.Poster}`);
+            image.attr('id',"mainPost")
             var imgHolder = $("#imgSearch");
             imgHolder.empty();
-            console.log(response.Poster)
             imgHolder.append(image)
             if(response.Poster !== undefined){
                 var form = $(".add-form")
