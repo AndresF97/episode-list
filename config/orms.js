@@ -17,12 +17,12 @@ var orm = {
         console.log(whatEpisode)
         console.log(note)
         console.log(whatPoster)
-        connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode,memo:note,show_poster:whatPoster},function(err,results){
+        connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode,memo:note,show_logo:whatPoster},function(err,result){
         if(err){
-            console.error("There's an error in the insertFunction function")
+            throw err
             }
             //cb renders the results
-            cb(results)
+            cb(result)
         });  
     },
     updateOne:function(valOfShow,valOfEpisode,valOfId,cb){
