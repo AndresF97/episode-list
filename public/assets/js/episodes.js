@@ -14,7 +14,7 @@
             show_name:  $("#showName").val().trim(),
             episode_name: $("#episodeName").val().trim(),
             memo:$("#memo").val().trim(),
-            show_poster:$("img").data("data-post")
+            show_poster:$("#mainPost").attr("data-post")
         } 
         $.ajax("/api/shows",{
             type:"POST",

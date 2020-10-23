@@ -12,11 +12,12 @@ var orm = {
        
         })
     },
-    insertOne:function(whatShow,whatEpisode,note,cb){
+    insertOne:function(whatShow,whatEpisode,note,whatPoster,cb){
         console.log(whatShow)
         console.log(whatEpisode)
         console.log(note)
-        connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode,memo:note},function(err,results){
+        console.log(whatPoster)
+        connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode,memo:note,show_poster:whatPoster},function(err,results){
         if(err){
             console.error("There's an error in the insertFunction function")
             }

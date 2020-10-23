@@ -7,7 +7,7 @@ var show  ={
         });
     },
     insertOne : function(info,placeHolder){
-        orm.insertOne(info.show_name,info.episode_name,function(res){
+        orm.insertOne(info.show_name,info.episode_name,info.memo,info.show_poster,function(res){
             
             placeHolder(res)
         });
