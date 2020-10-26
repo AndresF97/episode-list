@@ -17,8 +17,14 @@ router.post("/api/shows",function(req,res){
 });
 //deletes from the db
 router.delete("/api/deleteShow/:id",function(req,res){
-    var id = req.params.id
-
+    var id = "id = "+ req.params.id;
+    shows.deleteOne(id, function(result){
+        if(result.affectedRows == 0){
+            return res.status(404).end()
+        }else{
+            res.status(200).end()
+        }
+    });
 })
 
 //updates info from to the database

@@ -15,6 +15,11 @@ var show  ={
         orm.updateOne("episode",info,id, function(res){
             cb(res)
         })
+    },
+    deleteOne : function(id,cb){
+        orm.deleteOne("episode",id, function(res){
+            cb(res)
+        });
     }
 };
 

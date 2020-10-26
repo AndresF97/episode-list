@@ -5,7 +5,7 @@
             function(data){
             });
 
-
+        //adds a show into the the list
         $(".add-form").on("submit",function(event){
         event.preventDefault()
         console.log($("#mainPost").attr("data-post"))
@@ -26,6 +26,7 @@
             }
         )
     })
+    //Updates the show inforamtion
     $(".watched").on("click",function(event){
         console.log(this)
         var id = $(this).data("id")
@@ -67,6 +68,14 @@ $("#searchShows").on("click",function(event){
 //delete a show
 $(".delete").on("click",function(event){
     event.preventDefault()
+    console.log(this)
     console.log($(this).attr("data-delete"))
     var id = $(this).attr("data-delete")
+    $.ajax("/api/deleteShow/"+id,{
+        type:"DELETE"
+    }).then(function(){
+        console.log("deleted" + id);
+        location.reload()
+    }
+    );
 })
