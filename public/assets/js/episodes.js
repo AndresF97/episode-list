@@ -3,10 +3,30 @@
             type:"GET"
         }).then(
             function(data){
-            });
-
-        //adds a show into the the list
-        $(".add-form").on("submit",function(event){
+        });
+    //update date show if watched
+    $(".watched").on("click",function(event){
+        var id = $(this).data("id");
+        console.log(id);
+        $(this).data("watched",true);
+        var watch = $(this).data("watched");
+        console.log($(this).data("watched"));
+        var newWatchedState = {
+            watched: watch
+        };
+            $.ajax("/api/watched/" + id, {
+                type: "PUT",
+                data: newWatchedState
+            }).then(
+                function() {
+                console.log("changed sleep to", newWatchedState);
+                // Reload the page to get the updated list
+                location.reload();
+                }
+            );
+    })
+    //adds a show into the the list
+    $(".add-form").on("submit",function(event){
         event.preventDefault()
         console.log($("#mainPost").attr("data-post"))
         console.log($("#memo").val())
@@ -26,16 +46,19 @@
             }
         )
     })
-    //Updates the show inforamtion
-    $(".watched").on("click",function(event){
+    //delete a show
+    $(".delete").on("click",function(event){
+        event.preventDefault()
         console.log(this)
-        var id = $(this).data("id")
-        $.ajax("/api/shows:" + id,{
-            type:"PUT"
+        console.log($(this).attr("data-delete"))
+        var id = $(this).attr("data-delete")
+        $.ajax("/api/deleteShow/"+id,{
+            type:"DELETE"
         }).then(function(){
-            console.log("It worked")
-            //location.reload()
-        })
+            console.log("deleted" + id);
+            location.reload()
+        }
+        );
     })
 });
 //seacrhes for show
@@ -64,18 +87,11 @@ $("#searchShows").on("click",function(event){
                 form.append(addBtn)
             }
     });
-})
-//delete a show
-$(".delete").on("click",function(event){
-    event.preventDefault()
-    console.log(this)
-    console.log($(this).attr("data-delete"))
-    var id = $(this).attr("data-delete")
-    $.ajax("/api/deleteShow/"+id,{
-        type:"DELETE"
-    }).then(function(){
-        console.log("deleted" + id);
-        location.reload()
-    }
-    );
-})
+});
+//update a show info
+// $(".update").on("click",function(event){
+//     event.preventDefault();
+//      console.log(this)
+//      //after this you should be redirected to another page with all the shows information
+// })
+

@@ -11,7 +11,12 @@ var show  ={
             placeHolder(res)
         });
     },
-    upDateOne: function(info,id,cb){
+    updateWatched: function(info,id,cb){
+        orm.updateWatched("episode",info.watched,id, function(res){
+            cb(res)
+        })
+    },
+    updateOne: function(info,id,cb){
         orm.updateOne("episode",info,id, function(res){
             cb(res)
         })

@@ -33,8 +33,9 @@ var orm = {
             cb(results)
 
         })
-
-
+    },
+    updateWatched:function(table,watchedVal,id,cb){
+        connection.query(`UPDATE ${table} SET watched = ${watchedVal} WHERE ${id}`)
     },
     deleteOne:function(table,id,cb){
         var queryString = "DELETE FROM " + table;

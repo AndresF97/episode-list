@@ -9,7 +9,7 @@ CREATE TABLE episode(
     id INTEGER NOT NULL AUTO_INCREMENT,
     show_name VARCHAR(100),
     episode_name VARCHAR(100),
-    watched BOOLEAN DEFAULT true,
+    watched BOOLEAN DEFAULT false,
     show_logo VARCHAR(600),
     memo VARCHAR(500),
     PRIMARY KEY(id)
