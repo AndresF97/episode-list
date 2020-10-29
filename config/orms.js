@@ -26,6 +26,7 @@ var orm = {
         });  
     },
     updateOne:function(valOfShow,valOfEpisode,valOfId,cb){
+        console.log
         connection.query(`UPDATE episode SET show_name = ${valOfShow}, epsido_name = ${valOfEpisode} WHERE id =${valOfId}`,(err,results)=>{
             if(err){
                 console.error("there's an error in upDate function")
@@ -35,7 +36,13 @@ var orm = {
         })
     },
     updateWatched:function(table,watchedVal,id,cb){
-        connection.query(`UPDATE ${table} SET watched = ${watchedVal} WHERE ${id}`)
+        console.log(`UPDATE ${table} SET watched = ${watchedVal} WHERE ${id}`)
+        connection.query(`UPDATE ${table} SET watched = ${watchedVal} WHERE ${id}`,(err,results)=>{
+            if(err){
+                throw err
+            }
+            cb(results)
+        })
     },
     deleteOne:function(table,id,cb){
         var queryString = "DELETE FROM " + table;

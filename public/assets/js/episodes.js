@@ -6,6 +6,7 @@
         });
     //update date show if watched
     $(".watched").on("click",function(event){
+        event.preventDefault()
         var id = $(this).data("id");
         console.log(id);
         $(this).data("watched",true);

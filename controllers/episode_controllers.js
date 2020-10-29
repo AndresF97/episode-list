@@ -18,8 +18,7 @@ router.post("/api/shows",function(req,res){
 });
 //updates info from to the database
 router.put("/api/watched/:id",function(req,res){
-    console.log("runned 2")
-    var id = req.params.id;
+    var id = "id = " + req.params.id;
     console.log(req.params.id)
     shows.updateWatched({
         watched:req.body.watched},id, function(result){
