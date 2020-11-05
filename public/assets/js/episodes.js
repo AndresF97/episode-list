@@ -95,4 +95,3 @@ $("#searchShows").on("click",function(event){
 //      console.log(this)
 //      //after this you should be redirected to another page with all the shows information
 // })
-

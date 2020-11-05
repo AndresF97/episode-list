@@ -25,7 +25,7 @@ router.put("/api/watched/:id",function(req,res){
             if(result.changedRows === 0){
                 return res.status(404).end()
             }else{
-                res.status(200)
+                res.status(200).end();
             }
         });
     })
