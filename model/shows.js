@@ -6,6 +6,11 @@ var show  ={
             placeHolder(res)
         });
     },
+    selectOne:function(id,cb){
+        orm.selectOne("episode",id,function(res){
+            cb(res)
+        })
+    },
     insertOne : function(info,placeHolder){
         orm.insertOne(info.show_name,info.episode_name,info.memo,info.show_logo,function(res){
             placeHolder(res)

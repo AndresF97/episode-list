@@ -3,11 +3,19 @@ var router  = express.Router();
 var shows = require("../model/shows.js");
 const show = require("../model/shows.js");
 //gets all data saved from the database
+//gets single page with one with a single Mysql 
 router.get("/",function(req,res){
     shows.selectAll(function(data){
         res.render("index",{wObject:data});
     });
 
+}); 
+router.get("/:id",function(req,res){
+    var id = "id = " +req.params.id;
+    shows.selectOne(id,function(data){
+        console.log(data)
+        res.render("single",data[0])
+    });
 });
 //check the orm file to see how the data is being stored
 router.post("/api/shows",function(req,res){

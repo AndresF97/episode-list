@@ -12,11 +12,17 @@ var orm = {
        
         })
     },
+    selectOne: function(whatTable,id,cb){
+        var queryStr = `SELECT * FROM ${whatTable} WHERE ${id}`;
+        console.log(queryStr)
+        connection.query(queryStr,(err,results)=>{
+            if(err){
+                throw err
+            }
+            cb(results);
+        })
+    },
     insertOne:function(whatShow,whatEpisode,note,whatPoster,cb){
-        console.log(whatShow)
-        console.log(whatEpisode)
-        console.log(note)
-        console.log(whatPoster)
         connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode,memo:note,show_logo:whatPoster},function(err,result){
         if(err){
             throw err
