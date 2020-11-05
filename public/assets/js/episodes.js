@@ -90,3 +90,9 @@ $("#searchShows").on("click",function(event){
     });
 });
 //update a show info
+// $(".update").on("click",function(event){
+//     event.preventDefault();
+//     var id = $(this).attr("data-update")
+//      console.log(id)
+//      //after this you should be redirected to another page with all the shows information
+// })
