@@ -1,6 +1,15 @@
 <a href="/">Main Page</a>
-<h1>The show you're editing: {{this.show_name}}</h1>
-<h2> Episode name:{{this.episode_name}}</h2>
-<img class="poster"src="{{this.show_logo}}">
-<p>Memo: {{this.memo}}</p>
-<p>Plot: {{this.show_plot}}</p>
+<div class="container">
+    <h1>The show you're editing: {{this.show_name}}</h1>
+    <div class="row">
+        <img class="poster col-3"src="{{this.show_logo}}">
+        <div class="col">
+            <p>Plot: {{this.show_plot}}</p>
+            <label> Episode name:</label>
+            <input placeholder="{{this.episode_name}}" size="30"><br>
+            <label>Memo:</label>
+            <textarea placeholder="{{this.memo}}" size="30"></textarea>
+             <button class="btn btn-warning text-white update" data-update="{{this.id}}">Edit</button>
+        </div>
+    </div>
+</div>
