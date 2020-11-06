@@ -31,11 +31,11 @@ var orm = {
             cb(result)
         });  
     },
-    updateOne:function(valOfShow,valOfEpisode,valOfId,cb){
-        console.log
-        connection.query(`UPDATE episode SET show_name = ${valOfShow}, epsido_name = ${valOfEpisode} WHERE id =${valOfId}`,(err,results)=>{
+    updateOne:function(valOfEpisode,valOfMemo,valOfId,cb){
+        console.log(`UPDATE episode SET episode_name = ${valOfEpisode}, memo = ${valOfMemo}, WHERE id = ${valOfId}`)
+        connection.query("UPDATE episode SET episode_name = ?, memo = ? WHERE id = ?",[valOfEpisode,valOfMemo,valOfId],function(err,results){
             if(err){
-                console.error("there's an error in upDate function")
+               throw err
             }
             cb(results)
 

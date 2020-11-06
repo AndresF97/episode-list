@@ -37,6 +37,20 @@ router.put("/api/watched/:id",function(req,res){
             }
         });
     })
+router.put("/api/updateShowInfo/:id",function(req,res){
+        var id = req.params.id;
+        console.log(req.params.id)
+        shows.updateOne({
+            episode_name:req.body.episode_name,
+            memo:req.body.memo
+        },id, function(result){
+                if(result.changedRows === 0){
+                    return res.status(404).end()
+                }else{
+                    res.status(200).end()
+                }
+            });
+});
 //deletes from the db
 router.delete("/api/deleteShow/:id",function(req,res){
     var id = "id = "+ req.params.id;
@@ -48,16 +62,4 @@ router.delete("/api/deleteShow/:id",function(req,res){
         }
     })
 })
-//router.put("/api/updateShowInfo/:id",function(req,res){
-    // var id = req.params.id;
-    // console.log(req.params.id)
-    // show.updateWatched({
-    //     watched:req.body.watch},id, function(result){
-    //         if(result.changedRows === 0){
-    //             return res.status(404)
-    //         }else{
-    //             res.status(200)
-    //         }
-    //     });
-//});
 module.exports = router ;

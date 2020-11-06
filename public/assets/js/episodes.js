@@ -94,9 +94,23 @@ $("#searchShows").on("click",function(event){
     });
 });
 //update a show info
-// $(".update").on("click",function(event){
-//     event.preventDefault();
-//     var id = $(this).attr("data-update")
-//      console.log(id)
-//      //after this you should be redirected to another page with all the shows information
-// })
+$(".update").on("click",function(event){
+    event.preventDefault();
+    var id = $(this).attr("data-update")
+     console.log(id)
+     console.log($("#episodeName").val().trim());
+     console.log($("#memo").val().trim())
+     var updateShow = {
+        episode_name: $("#episodeName").val().trim(),
+        memo:$("#memo").val().trim(),
+     }
+     $.ajax("/api/updateShowInfo/"+id,{
+         type:"PUT",
+         data:updateShow
+     }).then(
+         function(){
+             location.reload()
+         }
+     )
+     //after this you should be redirected to another page with all the shows information
+})

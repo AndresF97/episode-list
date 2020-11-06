@@ -22,7 +22,7 @@ var show  ={
         })
     },
     updateOne: function(info,id,cb){
-        orm.updateOne("episode",info,id, function(res){
+        orm.updateOne(info.episode_name,info.memo,id, function(res){
             cb(res)
         })
     },
