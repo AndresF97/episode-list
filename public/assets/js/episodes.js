@@ -30,12 +30,14 @@
     $(".add-form").on("submit",function(event){
         event.preventDefault()
         console.log($("#mainPost").attr("data-post"))
+        console.log($("#mainPost").attr("data-plot"))
         console.log($("#memo").val())
         var newShow = {
             show_name:  $("#showName").val().trim(),
             episode_name: $("#episodeName").val().trim(),
             memo:$("#memo").val().trim(),
-            show_logo:$("#mainPost").attr("data-post")
+            show_logo:$("#mainPost").attr("data-post"),
+            show_plot:$("#mainPost").attr("data-plot")
         } 
         $.ajax("/api/shows",{
             type:"POST",
@@ -43,7 +45,7 @@
         }).then(
             function(){
                 console.log("added new show");
-                location.reload()
+                //location.reload()
             }
         )
     })
@@ -74,8 +76,10 @@ $("#searchShows").on("click",function(event){
             url: queryUrl,
             method: "GET"
         }).then(function(response) {
+            console.log(response)
             var image = $(`<img src=${response.Poster}>`);
             image.attr("data-post",`${response.Poster}`);
+            image.attr("data-plot",`${response.Plot}`)
             image.attr('id',"mainPost")
             var imgHolder = $("#imgSearch");
             imgHolder.empty();

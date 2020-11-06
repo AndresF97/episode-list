@@ -12,7 +12,7 @@ var show  ={
         })
     },
     insertOne : function(info,placeHolder){
-        orm.insertOne(info.show_name,info.episode_name,info.memo,info.show_logo,function(res){
+        orm.insertOne(info.show_name,info.episode_name,info.memo,info.show_logo,info.show_plot,function(res){
             placeHolder(res)
         });
     },

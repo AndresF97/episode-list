@@ -22,8 +22,8 @@ var orm = {
             cb(results);
         })
     },
-    insertOne:function(whatShow,whatEpisode,note,whatPoster,cb){
-        connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode,memo:note,show_logo:whatPoster},function(err,result){
+    insertOne:function(whatShow,whatEpisode,note,whatPoster,whatPlot,cb){
+        connection.query("INSERT INTO episode SET ?",{show_name:whatShow,episode_name:whatEpisode,memo:note,show_logo:whatPoster,show_plot:whatPlot},function(err,result){
         if(err){
             throw err
             }
