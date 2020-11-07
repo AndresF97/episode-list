@@ -1,9 +1,4 @@
  $(function(){ 
-        $.ajax("/",{
-            type:"GET"
-        }).then(
-            function(data){
-        });
     //update date show if watched
     $(".watched").on("click",function(event){
         event.preventDefault()

@@ -1,72 +1,89 @@
-<h1 class="text-center font-weight-bolder m-4" id="main">Your shows and notes</h1>
-<div class="container row text-center">
+<h1 class="text-center font-weight-bolder m-4" id="main">Shows and notes</h1>
+<div class="container row">
     <div class="col-4">
-<div class="card">
-  <h5 class="card-header text-center">Waiting to Watch</h5>
-  <div class="card-body">
+<div class="card text-center">
+  <h5 class="card-header">Still Watching</h5>
      {{#each wObject}}
      {{#unless this.watched}}
-    <div class="card">
-        <div class="card-body">
-          <h5 class="card-title "> Show Name: {{this.show_name}}</h5>
-          <img class="poster"src="{{this.show_logo}}" data-plot="{{this.show_plot}}">
-          <p class="card-text p-3 mb-2 bg-success text-white rounded-lg">Episode name: {{this.episode_name}}</p>
-          <p class="card-text p-3 mb-2 rounded-lg">My Notes: {{this.memo}}</p>
-          <div class="text-center">
-          <button class="btn btn-primary watched" data-id="{{this.id}}" data-watched="{{this.watched}}">Watched</button>
-          <a class="btn btn-warning text-white" data-update="{{this.id}}" href="/{{this.id}}">Edit</a>
-          <button class="btn btn-danger text-white delete" data-delete="{{this.id}}">X</button>
-          </div>
-        </div>
+          <div class="accordion" id="accordionExample">
+      <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{this.id}}" aria-expanded="true" aria-controls="collapseOne">
+          {{this.show_name}}
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapse{{this.id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+                   <h5 class="title">{{this.show_name}}</h5>
+            <img class="poster"src="{{this.show_logo}}" data-plot="{{this.show_plot}}">
+            <p class="card-text">Name: {{this.episode_name}}</p>
+            <p class="card-text">Notes: {{this.memo}}</p>
+            <div class="text-center">
+            <button class="btn btn-primary watched" data-id="{{this.id}}" data-watched="{{this.watched}}">Watched</button>
+            <a class="btn btn-warning text-white" href="/{{this.id}}"data-update="{{this.id}}">Edit</a>
+            <button class="btn btn-danger text-white delete" data-delete="{{this.id}}">X</button>
+            </div>
       </div>
-      <div class="m-4"></div>
+    </div>
+  </div>
+    </div>
       {{/unless}}
 {{/each}}
-  </div>
 </div>
 
 </div>
 <div class="col-4">
-    <h1 class="text-center ml-5 mr-5">Add your TV show</h1>
-    <div class="border border-dark rounded-lg">
+    <h3 class="ml-5 mr-5">Add your TV show</h3>
+    <div class="searchBox border border-dark rounded-lg">
   <form class="add-form">
           <div class="form-group">
             <div id="imgSearch">
 
             </div>
-            <label for="exampleFormControlInput1">Show Name</label>
+            <label>Show Name</label>
             <input type="showName" id="showName"class="form-control mb-1" id="showN" placeholder="TV show">
           </div>
           <div class="form-group">
-          <label for="exampleFormControlInput1">Episode Name</label>
+          <label>Episode Name</label>
             <input type="episodeName" id="episodeName" class="form-control" id="episodeN" placeholder="Episode name">
             <button type="submit" id="searchShows" class="btn btn-outline-secondary">Search!</button>
           </div>
     </form>
     </div>
-      <div id="editArea">
-
-      </div>
     </div>
     <div class="col-4">
         <div class="card">
   <h5 class="card-header text-center">Watched Shows</h5>
   {{#each wObject}}
       {{#if this.watched}}
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title "> Show Name: {{this.show_name}}</h5>
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{this.id}}" aria-expanded="true" aria-controls="collapseOne">
+          {{this.show_name}}
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapse{{this.id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+                   <h5 class="title">{{this.show_name}}</h5>
             <img class="poster"src="{{this.show_logo}}" data-plot="{{this.show_plot}}">
-            <p class="card-text p-3 mb-2 bg-success text-white rounded-lg">Episode name: {{this.episode_name}}</p>
-            <p class="card-text p-3 mb-2 rounded-lg">My Notes: {{this.memo}}</p>
+            <p class="card-text">Name: {{this.episode_name}}</p>
+            <p class="card-text">Notes: {{this.memo}}</p>
             <div class="text-center">
             <button class="btn btn-primary watched" data-id="{{this.id}}" data-watched="{{this.watched}}">Watched</button>
             <a class="btn btn-warning text-white" href="/{{this.id}}"data-update="{{this.id}}">Edit</a>
             <button class="btn btn-danger text-white delete" data-delete="{{this.id}}">X</button>
             </div>
-          </div>
+      </div>
     </div>
-    <div class="m-4"></div>
+  </div>
+    </div>
       {{/if}}
 {{/each}}
 
@@ -76,7 +93,53 @@
         </div>
 </div>
 
+{{!-- <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
 
+ --}}

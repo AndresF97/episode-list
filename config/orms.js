@@ -14,8 +14,8 @@ var orm = {
     },
     selectOne: function(whatTable,id,cb){
         var queryStr = `SELECT * FROM ${whatTable} WHERE ${id}`;
-        console.log(queryStr)
-        connection.query(queryStr,(err,results)=>{
+        console.log(queryStr+" this")
+        connection.query(`SELECT * FROM ${whatTable} WHERE ${id}`,(err,results)=>{
             if(err){
                 throw err
             }

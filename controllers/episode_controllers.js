@@ -1,8 +1,20 @@
 var express = require("express")
 var router  = express.Router();
 var shows = require("../model/shows.js");
-const show = require("../model/shows.js");
 //gets all data saved from the database
+router.get("/:id",function(req,res){
+    var id = "id = " +req.params.id;
+    console.log(id)
+    if(id === 'favicon.ico'){
+        console.log("no");
+    }
+    else{
+    shows.selectOne(id,function(data){
+        res.render("single",data[0])
+        console.log("yes")
+        });
+    }
+});
 //gets single page with one with a single Mysql 
 router.get("/",function(req,res){
     shows.selectAll(function(data){
@@ -10,13 +22,6 @@ router.get("/",function(req,res){
     });
 
 }); 
-router.get("/:id",function(req,res){
-    var id = "id = " +req.params.id;
-    shows.selectOne(id,function(data){
-        console.log(data)
-        res.render("single",data[0])
-    });
-});
 //check the orm file to see how the data is being stored
 router.post("/api/shows",function(req,res){
     shows.insertOne(req.body,function(result){
