@@ -5,6 +5,14 @@
     border: 3px solid black;
     margin-bottom: 4px;
 }
+.headButton{
+    font-size: 23px;
+    border: none;
+    background-color: whitesmoke;
+}.headButton:hover{
+    text-decoration: underline;
+    font-weight: bold;
+}
 .searchBox{
     padding: 5px;
 }
