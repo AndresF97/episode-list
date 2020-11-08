@@ -22,10 +22,12 @@
             <p class="card-text">Name: {{this.episode_name}}</p>
             <p class="card-text">Notes: {{this.memo}}</p>
             <div class="text-center">
-            <button class="btn btn-primary watched" data-id="{{this.id}}" data-watched="{{this.watched}}">Watched</button>
-            <a class="btn btn-warning text-white" href="/{{this.id}}"data-update="{{this.id}}">Edit</a>
-            <button class="btn btn-danger text-white delete" data-delete="{{this.id}}">X</button>
+          <div class="btn-group">
+            <button class="btn watched" data-id="{{this.id}}" data-watched="{{this.watched}}">Watched</button>
+            <a class="btn edit" href="/{{this.id}}"data-update="{{this.id}}">Edit</a>
+            <button class="btn delete" data-delete="{{this.id}}">X</button>
             </div>
+          </div>
       </div>
     </div>
   </div>
@@ -49,41 +51,45 @@
           <div class="form-group">
           <label>Episode Name</label>
             <input type="episodeName" id="episodeName" class="form-control" id="episodeN" placeholder="Episode name">
-            <button type="submit" id="searchShows" class="btn btn-outline-secondary">Search!</button>
+            <div class="text-right mt-2">
+              <button type="submit" id="searchShows" class="btn btn-outline-secondary">Search</button>
+            </div>
           </div>
     </form>
     </div>
     </div>
     <div class="col-4">
-        <div class="card">
-  <h5 class="card-header text-center">Watched Shows</h5>
-  {{#each wObject}}
-      {{#if this.watched}}
-    <div class="accordion" id="accordionExample">
-      <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="headButton" type="button" data-toggle="collapse" data-target="#collapse{{this.id}}" aria-expanded="false" aria-controls="collapseOne">
-          {{this.show_name}}
-        </button>
-      </h2>
-    </div>
+        <div class="card text-center">
+      <h5 class="card-header text-center">Watched Shows</h5>
+      {{#each wObject}}
+          {{#if this.watched}}
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="headButton" type="button" data-toggle="collapse" data-target="#collapse{{this.id}}" aria-expanded="false" aria-controls="collapseOne">
+              {{this.show_name}}
+            </button>
+          </h2>
+        </div>
 
-    <div id="collapse{{this.id}}" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-                   <h5 class="title">{{this.show_name}}</h5>
-            <img class="poster"src="{{this.show_logo}}" data-plot="{{this.show_plot}}">
-            <p class="card-text">Name: {{this.episode_name}}</p>
-            <p class="card-text">Notes: {{this.memo}}</p>
-            <div class="text-center">
-            <button class="btn btn-primary watched" data-id="{{this.id}}" data-watched="{{this.watched}}">Watched</button>
-            <a class="btn btn-warning text-white" href="/{{this.id}}"data-update="{{this.id}}">Edit</a>
-            <button class="btn btn-danger text-white delete" data-delete="{{this.id}}">X</button>
+        <div id="collapse{{this.id}}" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+                <h5 class="title">{{this.show_name}}</h5>
+                <img class="poster"src="{{this.show_logo}}" data-plot="{{this.show_plot}}">
+                <p class="card-text">Name: {{this.episode_name}}</p>
+                <p class="card-text">Notes: {{this.memo}}</p>
+                <div class="text-center">
+            <div class="btn-group">
+                <button class="btn watched" data-id="{{this.id}}" data-watched="{{this.watched}}">Watched</button>
+                <a class="btn edit" href="/{{this.id}}"data-update="{{this.id}}">Edit</a>
+                <button class="btn delete" data-delete="{{this.id}}">X</button>
             </div>
+                </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-    </div>
+        </div>
       {{/if}}
 {{/each}}
 

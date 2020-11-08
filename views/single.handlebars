@@ -1,14 +1,16 @@
 <div class="container">
-    <h1>The show you're editing: {{this.show_name}}</h1>
+    <h1>{{this.show_name}}</h1>
     <div class="row">
         <img class="poster col-3" src="{{this.show_logo}}">
         <div class="col">
-            <p>Plot: {{this.show_plot}}</p>
+            <p class="littleTitle">Plot: {{this.show_plot}}</p>
             <label class="littleTitle"> Episode name:</label>
-            <input placeholder="{{this.episode_name}}" id="episodeName"><br>
-            <label>Memo:</label>
-            <textarea placeholder="{{this.memo}}" id="memo"></textarea>
-             <button class="btn btn-warning text-white update" data-update="{{this.id}}">Edit</button>
+            <input placeholder="{{this.episode_name}}" id="episodeName" size="30"><br>
+             <div class="row">
+            <label class="littleTitle col-1 mr-5">Memo:</label>
+            <textarea class="col-5"placeholder="{{this.memo}}" id="memo" rows="1" cols="30"></textarea>
+             <button class=" col-3 btn btn-warning text-white update" data-update="{{this.id}}">Update</button>
+             </div>
         </div>
     </div>
 </div>
