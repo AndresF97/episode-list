@@ -64,15 +64,23 @@ $("#searchShows").on("click",function(event){
     event.preventDefault()
     console.log($("#showName").val())
     var show = $("#showName").val()
-    console.log(show)
      var queryUrl = "https://www.omdbapi.com/?t=" + show + "&plot=short&apikey=trilogy"
-        console.log(show)
         $.ajax({
             url: queryUrl,
             method: "GET"
         }).then(function(response) {
             console.log(response)
+            if(response.Response === "False"){
+                $("#errorM").empty()
+                var div = ` 
+                <div class="alerts">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                Sorry but "${show}" is not a movie or a tv show.
+              </div>`
+                $("#errorM").append(div)
+            }else{
             var image = $(`<img src=${response.Poster}>`);
+            image.addClass("poster")
             image.attr("data-post",`${response.Poster}`);
             image.attr("data-plot",`${response.Plot}`)
             image.attr('id',"mainPost")
@@ -81,11 +89,12 @@ $("#searchShows").on("click",function(event){
             imgHolder.append(image)
             if(response.Poster !== undefined){
                 var form = $(".add-form")
-                var textarea = $(`<textarea id="memo"class="m-4"></textarea>`)
-                var addBtn = $(`<button class="btn btn-success">Add!</button>`)
+                var textarea = $(`<textarea id="memo" rows="3" cols="39" class="col-12"></textarea>`)
+                var addBtn = $(`<button class="btn btn-success text-left">Add</button>`)
                 form.append(textarea)
                 form.append(addBtn)
             }
+        }
     });
 });
 //update a show info
