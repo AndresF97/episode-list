@@ -3,7 +3,7 @@ var connection = require("./connection.js");
 var orm = {
     selectAll : function(whatTable,cb){
        
-        var queryStr = "SELECT * FROM ??";
+        var queryStr = "SELECT * FROM ??;";
         connection.query(queryStr,[whatTable],function(err,results){
             if(err){
                 throw err
@@ -15,7 +15,7 @@ var orm = {
     selectOne: function(whatTable,id,cb){
         var queryStr = `SELECT * FROM ${whatTable} WHERE ${id}`;
         console.log(queryStr+" this")
-        connection.query(`SELECT * FROM ${whatTable} WHERE ${id}`,(err,results)=>{
+        connection.query(`SELECT * FROM ${whatTable} WHERE ${id};`,(err,results)=>{
             if(err){
                 throw err
             }

@@ -40,7 +40,7 @@
         }).then(
             function(){
                 console.log("added new show");
-                //location.reload()
+                location.reload()
             }
         )
     })
