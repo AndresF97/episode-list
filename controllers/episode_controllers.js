@@ -18,7 +18,6 @@ router.get("/:id",function(req,res){
 //gets single page with one with a single Mysql 
 router.get("/",function(req,res){
     shows.selectAll(function(data){
-        console.log(data)
         res.render("index",{wObject:data});
     });
 
