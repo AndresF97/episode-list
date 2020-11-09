@@ -4,7 +4,7 @@
     <div class="col-4">
 <div class="card text-center">
   <h5 class="card-header">Still Watching</h5>
-  <p>{{wObject}}</p>
+  <p>{{wObject[0].watched}}</p>
      {{#each wObject}}
      {{#unless this.watched}}
           <div class="accordion" id="accordionExample">
