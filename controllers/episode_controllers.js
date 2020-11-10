@@ -2,19 +2,19 @@ var express = require("express")
 var router  = express.Router();
 var shows = require("../model/shows.js");
 // //gets all data saved from the database
-// router.get("/:id",function(req,res){
-//     var id = "id = " +req.params.id;
-//     console.log(id)
-//     if(id === 'favicon.ico'){
-//         console.log("no");
-//     }
-//     else{
-//     shows.selectOne(id,function(data){
-//         res.render("single",data[0])
-//         console.log("yes")
-//         });
-//     }
-// });
+router.get("/:id",function(req,res){
+    var id = "id = " +req.params.id;
+    console.log(id)
+    if(id === 'favicon.ico'){
+        console.log("no");
+    }
+    else{
+    shows.selectOne(id,function(data){
+        res.render("single",data[0])
+        console.log("yes")
+        });
+    }
+});
 //gets single page with one with a single Mysql 
 router.get("/",function(req,res){
     shows.selectAll(function(data){
